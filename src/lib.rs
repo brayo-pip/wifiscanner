@@ -60,6 +60,7 @@ pub enum Error {
     FailedToParse,
     NoValue,
     HeaderNotFound(&'static str),
+    InsufficientPrivileges,
 }
 
 /// Wifi struct used to return information about wifi hotspots
@@ -89,7 +90,8 @@ impl fmt::Display for Error {
             Error::NoValue => write!(f, "Value expected but is not present"),
             Error::HeaderNotFound(header) => {
                 write!(f, "Did not find header {} but expected it", header)
-            }
+            },
+            Error::InsufficientPrivileges => write!(f, "Run with elevated privileges")
         }
     }
 }
