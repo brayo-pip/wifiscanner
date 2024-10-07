@@ -1,4 +1,7 @@
-# wifiscanner
+# wifi_scanner
+This is a fork of the wifiscanner crate by [booyaa]. I have made some changes to the crate to make it more suitable for my use cases.
+It's not going to be actively maintained as I'm only using it for [aw-watcher-network](https://github.com/brayo-pip/aw-watcher-network).
+It's on crates.io as `wifi_scanner`.
 
 [![CI](https://github.com/booyaa/wifiscanner/workflows/CI/badge.svg)](https://github.com/booyaa/wifiscanner/actions?query=workflow%3ACI)
 [![Crates](https://img.shields.io/crates/v/wifiscanner.svg)](https://crates.io/crates/wifiscanner)
@@ -34,25 +37,25 @@ Full documentation can be found [here](https://docs.rs/wifiscanner).
 
 ## Usage
 
-This crate is [on crates.io](https://crates.io/crates/wifiscanner) and can be
-used by adding `wifiscanner` to the dependencies in your project's `Cargo.toml`.
+This crate is [on crates.io](https://crates.io/crates/wifi_scanner) and can be
+used by adding `wifi_scanner` to the dependencies in your project's `Cargo.toml`.
 
 ```toml
 [dependencies]
-wifiscanner = "0.5.*"
+wifi_scanner = "0.5.*"
 ```
 
 and this to your crate root:
 
 ```rust
-extern crate wifiscanner;
+extern crate wifi_scanner;
 ```
 
 ## Example
 
 ```rust
-use wifiscanner;
-println!("{:?}", wifiscanner::scan());
+use wifi_scanner;
+println!("{:?}", wifi_scanner::scan());
 ```
 
 Alternatively if you've cloned the Git repo, you can run the above example
