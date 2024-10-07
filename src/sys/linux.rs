@@ -25,8 +25,12 @@ pub(crate) fn scan() -> Result<Vec<Wifi>> {
         .arg("scan")
         .output()
         .map_err(|_| Error::CommandNotFound)?;
+
     if output.status.code() == Some(255) {
         return Err(Error::InsufficientPrivileges);
+    }
+    if output.status.code() == Some(156) {
+        return Err(Error::NetworkIsDown);
     } else if !output.status.success() {
         return Err(Error::CommandFailed(
             output.status,

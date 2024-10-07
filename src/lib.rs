@@ -45,7 +45,7 @@ extern crate regex;
 
 mod sys;
 
-use std::fmt;
+use std::fmt::{self, write};
 use std::process::ExitStatus;
 
 type Result<T> = std::result::Result<T, Error>;
@@ -61,6 +61,7 @@ pub enum Error {
     NoValue,
     HeaderNotFound(&'static str),
     InsufficientPrivileges,
+    NetworkIsDown,
 }
 
 /// Wifi struct used to return information about wifi hotspots
@@ -90,8 +91,9 @@ impl fmt::Display for Error {
             Error::NoValue => write!(f, "Value expected but is not present"),
             Error::HeaderNotFound(header) => {
                 write!(f, "Did not find header {} but expected it", header)
-            },
-            Error::InsufficientPrivileges => write!(f, "Run with elevated privileges")
+            }
+            Error::InsufficientPrivileges => write!(f, "Run with elevated privileges"),
+            Error::NetworkIsDown => write!(f, "Network is down"),
         }
     }
 }
