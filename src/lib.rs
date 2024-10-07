@@ -45,7 +45,7 @@ extern crate regex;
 
 mod sys;
 
-use std::fmt::{self, write};
+use std::fmt::{self};
 use std::process::ExitStatus;
 
 type Result<T> = std::result::Result<T, Error>;
